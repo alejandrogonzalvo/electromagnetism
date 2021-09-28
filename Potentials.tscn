@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Playground.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/potential_lines.gdshader" type="Shader" id=2]
+[ext_resource path="res://Body.tscn" type="PackedScene" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+
+[node name="Potentials" type="Node2D"]
+
+[node name="Playground" type="Polygon2D" parent="."]
+material = SubResource( 1 )
+position = Vector2( -10.0793, 20.1588 )
+polygon = PoolVector2Array( 0, 0, 0, 1200, 2048, 1200, 2048, 0 )
+script = ExtResource( 1 )
+
+[node name="Body" parent="Playground" instance=ExtResource( 3 )]
+position = Vector2( 1109.53, 642.263 )
+charge = -1.0
+still = true
+
+[node name="Body5" parent="Playground" instance=ExtResource( 3 )]
+position = Vector2( 681.547, 633.47 )
+charge = -1.0
+
+[node name="Body2" parent="Playground" instance=ExtResource( 3 )]
+position = Vector2( 899.781, 441.201 )
+charge = 1.0
+
+[node name="Body3" parent="Playground" instance=ExtResource( 3 )]
+position = Vector2( 859.06, 740.526 )
+charge = -1.0
+still = true
