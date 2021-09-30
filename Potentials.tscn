@@ -21,11 +21,11 @@ charge = -1.0
 still = true
 
 [node name="Body5" parent="Playground" instance=ExtResource( 3 )]
-position = Vector2( 681.547, 633.47 )
-charge = -1.0
+position = Vector2( 681.547, 627.12 )
+charge = 1.0
 
 [node name="Body2" parent="Playground" instance=ExtResource( 3 )]
-position = Vector2( 899.781, 441.201 )
+position = Vector2( 899.781, 442.788 )
 charge = 1.0
 
 [node name="Body3" parent="Playground" instance=ExtResource( 3 )]

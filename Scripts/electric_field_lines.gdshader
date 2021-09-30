@@ -32,7 +32,7 @@ float getDistance(vec2 current_position) {
 	vec2 pos = texelFetch(distances, ivec2(0, 0), 0).xy;
 	float charge = texelFetch(charges, ivec2(0, 0), 0).x;
 	float dist = distance(pos, current_position);
-	float potential = 10.0*charge/dist;
+	float potential = 1000.0*charge/pow(dist, 2);
 	
 	// Iterate all other items (start=1) and override distance if it is shorter.
 	// You could also do things like calculating the average of all items.
@@ -41,7 +41,7 @@ float getDistance(vec2 current_position) {
 		pos = texelFetch(distances, ivec2(index, 0), 0).xy;
 		charge = texelFetch(charges, ivec2(index, 0), 0).x;
 		dist = distance(pos, current_position);
-		potential += 10.0*charge/dist;
+		potential += 1000.0*charge/pow(dist, 2);
 	}
 	
 	// Finally return the potential
@@ -63,7 +63,7 @@ void vertex() {
 void fragment() {
 	// Get the distance to the nearest potential
 	float potential = getDistance(position);
-	float floored_potential = potential - mod(potential, 1.0/32.0);
+	float floored_potential = potential - mod(potential, 1.0/64.0);
 	COLOR.rgb = vec3(floored_potential + 0.5);
 	
 // Old code	

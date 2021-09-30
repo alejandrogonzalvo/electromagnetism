@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="electromagnetism"
-run/main_scene="res://Potentials.tscn"
+run/main_scene="res://Electric_Field.tscn"
 
 [physics]
 

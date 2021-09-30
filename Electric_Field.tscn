@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Playground.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/electric_field_lines.gdshader" type="Shader" id=2]
+[ext_resource path="res://Body.tscn" type="PackedScene" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+
+[node name="Electric_Field" type="Node2D"]
+
+[node name="Playground" type="Polygon2D" parent="."]
+material = SubResource( 1 )
+position = Vector2( -10.0793, 20.1588 )
+polygon = PoolVector2Array( 0, 0, 0, 2400, 4096, 2400, 4096, 0 )
+script = ExtResource( 1 )
+
+[node name="Body" parent="Playground" instance=ExtResource( 3 )]
+position = Vector2( 2200, 1300 )
+charge = -3.0
+still = true
+
+[node name="Body2" parent="Playground" instance=ExtResource( 3 )]
+position = Vector2( 2200, 1100 )
+charge = 1.0
+velocity = Vector2( 200, 200 )
+
+[node name="Body3" parent="Playground" instance=ExtResource( 3 )]
+position = Vector2( 2200, 1500 )
+charge = 1.0
+velocity = Vector2( -200, -200 )
+
+[node name="Body4" parent="Playground" instance=ExtResource( 3 )]
+position = Vector2( 1800, 1300 )
+charge = -3.0
+still = true
+
+[node name="Body5" parent="Playground" instance=ExtResource( 3 )]
+position = Vector2( 2600, 1300 )
+charge = -3.0
+still = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 2200, 1300 )
+current = true
+zoom = Vector2( 2, 2 )
